@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".ui.MainActivity.Fragments.Trending.TrendingFragment">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/discoverTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trending"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/countryTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="reads"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/discoverTV"/>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/lightning"
+        android:layout_toRightOf="@id/discoverTV"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="25dp" />
+
+    <FrameLayout
+        android:id="@+id/dateLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        >
+        <include layout="@layout/date_layout"/>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/topFeedsTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Top Updates arround World"
+        android:textColor="@color/white"
+        android:layout_below="@id/countryTV"
+        android:textSize="18sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="2dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/trendingCategoriesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/topFeedsTV" />
+
+    <TextView
+        android:id="@+id/topGrossingTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Top grossing reads today"
+        android:textColor="@color/white"
+        android:layout_below="@id/trendingCategoriesRecyclerView"
+        android:textSize="18sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/trendingRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/topGrossingTV"
+        android:nestedScrollingEnabled="false"
+        />
+</RelativeLayout>
+</androidx.core.widget.NestedScrollView>

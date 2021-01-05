@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:paddingRight="30dp"
+    android:paddingLeft="30dp"
+    android:background="@drawable/round_rect">
+
+    <ImageView
+        android:id="@+id/dateIco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_date"/>
+
+    <TextView
+        android:id="@+id/todayDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="01/12"
+        android:layout_toRightOf="@+id/dateIco"
+        android:textColor="@color/white"
+        android:layout_marginLeft="5dp"
+        android:layout_centerVertical="true"
+        android:textSize="18sp"
+        />
+</RelativeLayout>

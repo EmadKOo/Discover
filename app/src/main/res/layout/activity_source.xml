@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".ui.SourceActivity.SourceActivity">
+
+    <ImageView
+        android:id="@+id/backSources"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/left_arrow"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+
+        />
+    <TextView
+        android:id="@+id/sourcesTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#ABC NEWS"
+        android:textColor="@color/light_text"
+        android:textSize="24sp"
+        android:layout_toRightOf="@id/backSources"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"/>
+
+
+    <ImageView
+        android:id="@+id/goToSource"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/link"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sourcesAcRecyclerView"
+        android:layout_below="@+id/sourcesTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        />
+</RelativeLayout>

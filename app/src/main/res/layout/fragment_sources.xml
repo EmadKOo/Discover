@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:fillViewport="true"
+    tools:context=".ui.MainActivity.Fragments.SourcesFragment.SourcesFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/sourcesTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sources"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/worldWide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="World Wide"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/sourcesTV"/>
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/structure"
+        android:layout_toRightOf="@+id/sourcesTV"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        />
+
+        <ImageView
+            android:id="@+id/userSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_person"
+            android:layout_alignParentRight="true"
+            android:layout_margin="20dp"
+            />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sourcesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+        android:layout_below="@id/worldWide"
+        android:layout_margin="20dp"
+        android:focusable="false"
+        />
+
+
+        <TextView
+            android:id="@+id/noResourcesTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Sources in your country."
+            android:textColor="@color/light_text"
+            android:layout_centerInParent="true"
+            android:textSize="17sp"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

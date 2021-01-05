@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".ui.DisplayNewsActivity.DisplayNewsActivity">
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+
+
+        <ImageView
+            android:id="@+id/backNews"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/left_arrow"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+
+            />
+    <TextView
+        android:id="@+id/newsTitleTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="Apple is Company"
+        android:textSize="20sp"
+        android:layout_toLeftOf="@+id/newsSourceTV"
+        android:layout_below="@id/backNews"
+        />
+
+    <ImageView
+        android:id="@+id/newsLink"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/link"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+
+        />
+    <TextView
+        android:id="@+id/newsSourceTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:text="#ABC-NEWS"
+        android:textColor="@color/white"
+        android:background="@drawable/round_rect_light"
+        android:padding="6dp"
+        android:layout_below="@id/newsLink"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+         />
+    </RelativeLayout>
+    <com.comix.rounded.RoundedCornerImageView
+        android:id="@+id/newsImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/topLayout"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/emad"
+        app:cornerRadius="10dp"
+        app:cornerColor="@color/background_color"
+        android:scaleType="centerCrop"/>
+
+
+    <TextView
+        android:id="@+id/firstLetterOfDiscription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A"
+        android:textColor="@color/white"
+        android:layout_below="@id/authorNewsTV"
+        android:layout_marginLeft="30dp"
+        android:textSize="40sp"
+        android:paddingRight="10dp"/>
+
+    <TextView
+        android:id="@+id/restOfDiscriptionNewsTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/firstLetterOfDiscription"
+        android:layout_below="@id/authorNewsTV"
+        android:text="pple has annoumgml;;jldnlsfdnsfkknfdsknsdkfnkd  snkfkndfnskdsdnfknkndsknkfdsnknfdsknkndfsknksdnnfdksnsdfnkdsannoumgml;;jldnlsfdnsfkknfdsknsdkfnkd  snkfkndfnskdsdnfknkndsknkfdsnknfdsknkndfsknksdnnfdksnsdfnkds"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"/>
+
+    <TextView
+        android:id="@+id/authorNewsTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nos.nl"
+        android:textColor="@color/light_text"
+        android:paddingBottom="10dp"
+
+        android:layout_below="@id/newsImage"
+        android:layout_marginLeft="30dp"
+
+        />
+</RelativeLayout>

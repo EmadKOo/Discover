@@ -1,0 +1,46 @@
+trending upon user country:
+https://newsapi.org/v2/top-headlines?country=us&apiKey=f6117a26eb70433b91c323fa3ac07e56
+
+trending upon specific source:
+https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=f6117a26eb70433b91c323fa3ac07e56
+
+get all sources:
+https://newsapi.org/v2/sources?apiKey=f6117a26eb70433b91c323fa3ac07e56
+
+trending upon country in specific topic:
+https://newsapi.org/v2/top-headlines?country=de&category=business&apiKey=f6117a26eb70433b91c323fa3ac07e56
+
+search in trending : // i think it is not useful
+https://newsapi.org/v2/top-headlines?q=trump&apiKey=f6117a26eb70433b91c323fa3ac07e56
+
+---------------------------------------------------
+Everything
+search for specific word
+https://newsapi.org/v2/everything?q=bitcoin&apiKey=f6117a26eb70433b91c323fa3ac07e56
+
+search specific word from data to another date
+https://newsapi.org/v2/everything?q=apple&from=2021-01-01&to=2021-01-01&sortBy=popularity&apiKey=f6117a26eb70433b91c323fa3ac07e56
+
+
+get all news from specific source or more than one
+https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&apiKey=f6117a26eb70433b91c323fa3ac07e56
+------------------------------------------------------
+all
+all Sources:
+https://newsapi.org/v2/sources?apiKey=f6117a26eb70433b91c323fa3ac07e56
+
+all sources in specific language:
+https://newsapi.org/v2/sources?language=en&apiKey=f6117a26eb70433b91c323fa3ac07e56
+
+
+----------------------------------------
+Constants
+
+Categories
+business entertainment general health science sports technology
+
+Language
+ar de en es fr he it nl no pt ru se ud zh
+
+Country
+ae ar at au be bg br ca ch cn co cu cz de eg fr gb gr hk hu id ie il in it jp kr lt lv ma mx my ng nl no nz ph pl pt ro rs ru sa se sg si sk th tr tw ua us ve za

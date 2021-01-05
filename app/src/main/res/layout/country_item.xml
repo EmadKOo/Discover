@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_color"
+    android:padding="20dp"
+    android:id="@+id/countryLayout"
+    >
+
+    <CheckBox
+        android:id="@+id/countryCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:theme="@style/MyCheckBox"
+        android:visibility="gone"
+        />
+    <ImageView
+        android:id="@+id/countryImageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@color/white"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/countryCheckBox"/>
+
+    <TextView
+        android:id="@+id/countryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_text"
+        android:text="Egypt"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/countryImageView"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+
+
+        />
+
+</RelativeLayout>

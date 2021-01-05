@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    android:background="@drawable/round_rect_item">
+
+    <TextView
+        android:id="@+id/itemTitleGrossing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="APPLE EVENT"
+        android:textColor="@color/white"
+        android:layout_margin="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/imageItemGrossingItem"
+        />
+
+    <TextView
+        android:id="@+id/itemGrossingDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/itemTitleGrossing"
+        android:textColor="@color/white"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/imageItemGrossingItem"
+        android:maxLines="2"
+        android:lines="2"
+        android:minLines="1"
+        android:text="Apple has announced its third product reveal event in as many"/>
+
+    <TextView
+        android:id="@+id/datePostedGrossingItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 min ago"
+        android:layout_below="@id/itemGrossingDesc"
+        android:textColor="@color/light_text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <com.comix.rounded.RoundedCornerImageView
+        android:id="@+id/imageItemGrossingItem"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        app:cornerBottomDisable="false"
+        app:cornerLeftDisable="false"
+        app:cornerRightDisable="false"
+        app:cornerTopDisable="false"
+        app:cornerRadius="6dp"
+        app:cornerColor="@color/item_background"
+        android:scaleType="centerCrop"/>
+
+</RelativeLayout>
