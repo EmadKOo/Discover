@@ -15,10 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.discover.R;
-import com.example.discover.Tools.Fonts;
-import com.example.discover.pojo.Category;
-import com.example.discover.pojo.Sources.Source;
-import com.example.discover.pojo.WorldWide.Article;
+import com.example.discover.helper.Fonts;
+import com.example.discover.pojo.sources.Source;
+import com.example.discover.pojo.articleroot.Article;
 import com.example.discover.ui.MainActivity.Fragments.Trending.TrendingCountryAdapter;
 
 import java.util.ArrayList;

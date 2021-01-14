@@ -3,6 +3,7 @@ package com.example.discover.ui.MainActivity.Fragments.Country.Categories;
 
 import android.os.Bundle;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -15,10 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.discover.R;
-import com.example.discover.Tools.MySharedPreferences;
-import com.example.discover.pojo.WorldWide.Article;
+import com.example.discover.databinding.FragmentBusinessBinding;
+import com.example.discover.helper.MySharedPreferences;
+import com.example.discover.pojo.articleroot.Article;
 import com.example.discover.ui.MainActivity.Fragments.Trending.TrendingCountryAdapter;
-import com.example.discover.ui.MainActivity.Fragments.Trending.TrendingViewModel;
 
 import java.util.ArrayList;
 
@@ -27,8 +28,7 @@ import java.util.ArrayList;
  */
 public class BusinessFragment extends Fragment {
 
-    View root ;
-    RecyclerView recyclerItem;
+    FragmentBusinessBinding businessBinding;
     ItemViewModel itemViewModel;
     ArrayList<Article> articleArrayList = new ArrayList<>();
     TrendingCountryAdapter trendingCountryAdapter;
@@ -38,18 +38,17 @@ public class BusinessFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        root =  inflater.inflate(R.layout.fragment_business, container, false);
+        businessBinding = FragmentBusinessBinding.inflate(inflater, container, false);
         mySharedPreferences = new MySharedPreferences(getActivity());
         initViewModel();
         initObserver();
-        return root;
+        return businessBinding.getRoot();
     }
 
     void initRecyclerView(){
-        recyclerItem = root.findViewById(R.id.recyclerItem);
-        recyclerItem.setLayoutManager(new LinearLayoutManager(getContext()));
+        businessBinding.recyclerItem.setLayoutManager(new LinearLayoutManager(getContext()));
         trendingCountryAdapter = new TrendingCountryAdapter(articleArrayList, getActivity());
-        recyclerItem.setAdapter(trendingCountryAdapter);
+        businessBinding.recyclerItem.setAdapter(trendingCountryAdapter);
     }
 
     void initViewModel(){

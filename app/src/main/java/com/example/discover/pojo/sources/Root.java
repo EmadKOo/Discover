@@ -1,4 +1,4 @@
-package com.example.discover.pojo.Sources;
+package com.example.discover.pojo.sources;
 
 import java.io.Serializable;
 import java.util.ArrayList;

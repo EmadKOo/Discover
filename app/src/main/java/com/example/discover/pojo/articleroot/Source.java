@@ -1,4 +1,4 @@
-package com.example.discover.pojo.WorldWide;
+package com.example.discover.pojo.articleroot;
 
 import java.io.Serializable;
 

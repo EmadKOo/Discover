@@ -12,36 +12,34 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.discover.R;
-import com.example.discover.Tools.MySharedPreferences;
-import com.example.discover.pojo.WorldWide.Article;
+import com.example.discover.databinding.FragmentTechbologyBinding;
+import com.example.discover.helper.MySharedPreferences;
+import com.example.discover.pojo.articleroot.Article;
 import com.example.discover.ui.MainActivity.Fragments.Trending.TrendingCountryAdapter;
 
 import java.util.ArrayList;
 
 public class TechnologyFragment extends Fragment {
 
-    View root ;
-    RecyclerView recyclerItem;
+    FragmentTechbologyBinding techBinding;
     ItemViewModel itemViewModel;
     ArrayList<Article> articleArrayList = new ArrayList<>();
     TrendingCountryAdapter trendingCountryAdapter;
     MySharedPreferences mySharedPreferences;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        root =  inflater.inflate(R.layout.fragment_techbology, container, false);
+        techBinding = FragmentTechbologyBinding.inflate(inflater, container, false);
         mySharedPreferences = new MySharedPreferences(getActivity());
         initViewModel();
         initObserver();
-        return root;
+        return techBinding.getRoot();
     }
 
     void initRecyclerView(){
-        recyclerItem = root.findViewById(R.id.recyclerItem);
-        recyclerItem.setLayoutManager(new LinearLayoutManager(getContext()));
+        techBinding.recyclerItem.setLayoutManager(new LinearLayoutManager(getContext()));
         trendingCountryAdapter = new TrendingCountryAdapter(articleArrayList, getActivity());
-        recyclerItem.setAdapter(trendingCountryAdapter);
+        techBinding.recyclerItem.setAdapter(trendingCountryAdapter);
     }
 
     void initViewModel(){

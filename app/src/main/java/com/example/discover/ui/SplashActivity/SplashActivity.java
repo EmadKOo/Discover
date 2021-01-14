@@ -1,29 +1,28 @@
 package com.example.discover.ui.SplashActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.discover.R;
-import com.example.discover.Tools.DialogHelper;
-import com.example.discover.Tools.Fonts;
-import com.example.discover.Tools.NetworkUtils;
+import com.example.discover.databinding.ActivitySplashBinding;
+import com.example.discover.helper.DialogHelper;
+import com.example.discover.helper.Fonts;
+import com.example.discover.helper.NetworkUtils;
 import com.example.discover.ui.MainActivity.MainActivity;
 
 public class SplashActivity extends AppCompatActivity implements ISplash{
 
-    Fonts fonts;
-    TextView updatesDiscoverTV, discoverTv;
+    ActivitySplashBinding splashBinding;
     DialogHelper dialogHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-        fonts = new Fonts(this);
-        initViews();
+        splashBinding = DataBindingUtil.setContentView(this, R.layout.activity_splash);
+        splashBinding.setFont(new Fonts(this));
         if (NetworkUtils.isNetworkConnected(this)){
             new Thread(new Runnable() {
                 @Override
@@ -41,17 +40,6 @@ public class SplashActivity extends AppCompatActivity implements ISplash{
             dialogHelper = new DialogHelper(this, this);
             dialogHelper.dialogInternet();
         }
-
-
-    }
-
-    private void initViews(){
-        updatesDiscoverTV = findViewById(R.id.updatesDiscoverTV);
-        discoverTv = findViewById(R.id.discoverTV);
-
-        updatesDiscoverTV.setTypeface(fonts.getAudioWide());
-        discoverTv.setTypeface(fonts.getAudioWide());
-
     }
 
     @Override

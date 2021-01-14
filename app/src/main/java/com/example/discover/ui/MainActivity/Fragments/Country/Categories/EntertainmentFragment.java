@@ -12,16 +12,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.discover.R;
-import com.example.discover.Tools.MySharedPreferences;
-import com.example.discover.pojo.WorldWide.Article;
+import com.example.discover.databinding.FragmentBusinessBinding;
+import com.example.discover.databinding.FragmentEntertainmentBinding;
+import com.example.discover.helper.MySharedPreferences;
+import com.example.discover.pojo.articleroot.Article;
 import com.example.discover.ui.MainActivity.Fragments.Trending.TrendingCountryAdapter;
 
 import java.util.ArrayList;
 
 public class EntertainmentFragment extends Fragment {
 
-    View root ;
-    RecyclerView recyclerItem;
+    FragmentEntertainmentBinding entertainmentBinding;
     ItemViewModel itemViewModel;
     ArrayList<Article> articleArrayList = new ArrayList<>();
     TrendingCountryAdapter trendingCountryAdapter;
@@ -30,18 +31,17 @@ public class EntertainmentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        root =  inflater.inflate(R.layout.fragment_entertainment, container, false);
+        entertainmentBinding = FragmentEntertainmentBinding.inflate(inflater, container, false);;
         mySharedPreferences = new MySharedPreferences(getActivity());
         initViewModel();
         initObserver();
-        return root;
+        return entertainmentBinding.getRoot();
     }
 
     void initRecyclerView(){
-        recyclerItem = root.findViewById(R.id.recyclerItem);
-        recyclerItem.setLayoutManager(new LinearLayoutManager(getContext()));
+        entertainmentBinding.recyclerItem.setLayoutManager(new LinearLayoutManager(getContext()));
         trendingCountryAdapter = new TrendingCountryAdapter(articleArrayList, getActivity());
-        recyclerItem.setAdapter(trendingCountryAdapter);
+        entertainmentBinding.recyclerItem.setAdapter(trendingCountryAdapter);
     }
 
     void initViewModel(){

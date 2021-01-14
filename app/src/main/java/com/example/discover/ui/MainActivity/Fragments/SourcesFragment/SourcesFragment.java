@@ -4,6 +4,7 @@ package com.example.discover.ui.MainActivity.Fragments.SourcesFragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -14,24 +15,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.discover.R;
-import com.example.discover.Tools.Fonts;
-import com.example.discover.Tools.MySharedPreferences;
-import com.example.discover.pojo.Sources.Source;
+import com.example.discover.databinding.FragmentSourcesBinding;
+import com.example.discover.helper.Fonts;
+import com.example.discover.helper.MySharedPreferences;
+import com.example.discover.pojo.sources.Source;
 import com.example.discover.ui.UserCountryActivity.UserCountryActivity;
 
 import java.util.ArrayList;
+
+import io.reactivex.Observable;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class SourcesFragment extends Fragment {
     View rootView;
+    FragmentSourcesBinding fragmentSourcesBinding;
     ImageView userSettings;
     RecyclerView sourcesRecyclerView;
-    TextView noResourcesTV, sourcesTV, worldWide;
     ArrayList<Source> sourceArrayList;
     SourcesAdapter adapter;
     Fonts fonts;
@@ -40,36 +47,29 @@ public class SourcesFragment extends Fragment {
     public SourcesFragment() {
         // Required empty public constructor
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_sources, container, false);
+        fragmentSourcesBinding = DataBindingUtil.inflate(inflater,R.layout.fragment_sources, container,false);
+        rootView =fragmentSourcesBinding.getRoot();
         fonts = new Fonts(getContext());
         mySharedPreferences = new MySharedPreferences(getActivity());
-        initViews();
+        fragmentSourcesBinding.setFonts(fonts);
+
         initViewModel();
+        goToUserCountry();
         getAllSources();
         return rootView;
     }
 
-    private void initViews(){
-        worldWide = rootView.findViewById(R.id.worldWide);
-        sourcesTV = rootView.findViewById(R.id.sourcesTV);
-        userSettings = rootView.findViewById(R.id.userSettings);
-        noResourcesTV = rootView.findViewById(R.id.noResourcesTV);
-        userSettings.setOnClickListener(new View.OnClickListener() {
+
+    public void goToUserCountry(){
+        fragmentSourcesBinding.userSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getContext().startActivity(new Intent(getActivity(), UserCountryActivity.class));
             }
         });
-
-        worldWide.setTypeface(fonts.getMontserratAlternates());
-        sourcesTV.setTypeface(fonts.getAudioWide());
-        noResourcesTV.setTypeface(fonts.getMontserratAlternates());
-
     }
     private void initRecyclerView(){
         sourcesRecyclerView = rootView.findViewById(R.id.sourcesRecyclerView);
@@ -90,9 +90,9 @@ public class SourcesFragment extends Fragment {
                 sourceArrayList = sources;
                 initRecyclerView();
                 if (sourceArrayList.size()==0)
-                    noResourcesTV.setVisibility(View.VISIBLE);
+                    fragmentSourcesBinding.noResourcesTV.setVisibility(View.VISIBLE);
                 else
-                    noResourcesTV.setVisibility(View.GONE);
+                    fragmentSourcesBinding.noResourcesTV.setVisibility(View.GONE);
             }
         });
     }

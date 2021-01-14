@@ -1,18 +1,15 @@
 package com.example.discover.Retrofit;
 
-import android.content.SharedPreferences;
+import com.example.discover.pojo.sources.Root;
+import com.example.discover.pojo.articleroot.WorldWide;
 
-import com.example.discover.pojo.Sources.Root;
-import com.example.discover.pojo.WorldWide.WorldWide;
+import java.util.ArrayList;
+import java.util.concurrent.Future;
 
-import java.security.PublicKey;
-import java.util.Calendar;
-
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class NewsClient {
     private String BASEURL = "https://newsapi.org/";

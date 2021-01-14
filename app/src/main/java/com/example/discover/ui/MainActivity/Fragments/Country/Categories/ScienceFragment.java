@@ -12,16 +12,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.discover.R;
-import com.example.discover.Tools.MySharedPreferences;
-import com.example.discover.pojo.WorldWide.Article;
+import com.example.discover.databinding.FragmentScienceBinding;
+import com.example.discover.helper.MySharedPreferences;
+import com.example.discover.pojo.articleroot.Article;
 import com.example.discover.ui.MainActivity.Fragments.Trending.TrendingCountryAdapter;
 
 import java.util.ArrayList;
 
 public class ScienceFragment extends Fragment {
 
-    View root ;
-    RecyclerView recyclerItem;
+    FragmentScienceBinding scienceBinding;
     ItemViewModel itemViewModel;
     ArrayList<Article> articleArrayList = new ArrayList<>();
     TrendingCountryAdapter trendingCountryAdapter;
@@ -30,18 +30,17 @@ public class ScienceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        root =  inflater.inflate(R.layout.fragment_science, container, false);
+        scienceBinding = FragmentScienceBinding.inflate(inflater, container, false);
         mySharedPreferences = new MySharedPreferences(getActivity());
         initViewModel();
         initObserver();
-        return root;
+        return scienceBinding.getRoot();
     }
 
     void initRecyclerView(){
-        recyclerItem = root.findViewById(R.id.recyclerItem);
-        recyclerItem.setLayoutManager(new LinearLayoutManager(getContext()));
+        scienceBinding.recyclerItem.setLayoutManager(new LinearLayoutManager(getContext()));
         trendingCountryAdapter = new TrendingCountryAdapter(articleArrayList, getActivity());
-        recyclerItem.setAdapter(trendingCountryAdapter);
+        scienceBinding.recyclerItem.setAdapter(trendingCountryAdapter);
     }
 
     void initViewModel(){

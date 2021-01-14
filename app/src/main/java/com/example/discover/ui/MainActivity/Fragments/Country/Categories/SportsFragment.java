@@ -12,15 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.discover.R;
-import com.example.discover.Tools.MySharedPreferences;
-import com.example.discover.pojo.WorldWide.Article;
+import com.example.discover.databinding.FragmentSportsBinding;
+import com.example.discover.helper.MySharedPreferences;
+import com.example.discover.pojo.articleroot.Article;
 import com.example.discover.ui.MainActivity.Fragments.Trending.TrendingCountryAdapter;
 
 import java.util.ArrayList;
 
 public class SportsFragment extends Fragment {
-    View root ;
-    RecyclerView recyclerItem;
+    FragmentSportsBinding sportsBinding;
     ItemViewModel itemViewModel;
     ArrayList<Article> articleArrayList = new ArrayList<>();
     TrendingCountryAdapter trendingCountryAdapter;
@@ -29,18 +29,17 @@ public class SportsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        root =  inflater.inflate(R.layout.fragment_sports, container, false);
+        sportsBinding = FragmentSportsBinding.inflate(inflater, container, false);
         mySharedPreferences = new MySharedPreferences(getActivity());
         initViewModel();
         initObserver();
-        return root;
+        return sportsBinding.getRoot();
     }
 
     void initRecyclerView(){
-        recyclerItem = root.findViewById(R.id.recyclerItem);
-        recyclerItem.setLayoutManager(new LinearLayoutManager(getContext()));
+        sportsBinding.recyclerItem.setLayoutManager(new LinearLayoutManager(getContext()));
         trendingCountryAdapter = new TrendingCountryAdapter(articleArrayList, getActivity());
-        recyclerItem.setAdapter(trendingCountryAdapter);
+        sportsBinding.recyclerItem.setAdapter(trendingCountryAdapter);
     }
 
     void initViewModel(){

@@ -7,8 +7,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.discover.Retrofit.NewsClient;
-import com.example.discover.pojo.Sources.Root;
-import com.example.discover.pojo.Sources.Source;
+import com.example.discover.pojo.sources.Root;
+import com.example.discover.pojo.sources.Source;
 
 import java.util.ArrayList;
 
@@ -34,5 +34,4 @@ public class SourceViewModel extends ViewModel {
             }
         });
     }
-
 }

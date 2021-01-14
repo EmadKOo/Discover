@@ -1,9 +1,11 @@
 package com.example.discover.Retrofit;
 
 import com.example.discover.pojo.Location;
-import com.example.discover.pojo.Sources.Root;
-import com.example.discover.pojo.WorldWide.WorldWide;
+import com.example.discover.pojo.sources.Root;
+import com.example.discover.pojo.articleroot.WorldWide;
 
+import io.reactivex.Flowable;
+import io.reactivex.Observable;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -27,6 +29,9 @@ public interface ApiInterface {
     //https://newsapi.org/v2/sources?apiKey=f6117a26eb70433b91c323fa3ac07e56
     @GET("v2/sources")
     Call<Root> getAllSources(@Query("country") String country , @Query("apiKey") String apiKey);
+
+    @GET("v2/sources")
+    Observable<Root> getAllObsSources(@Query("country") String country , @Query("apiKey") String apiKey);
 
     // get all news from specific source
     //https://newsapi.org/v2/everything?sources=abc-news&apiKey=f6117a26eb70433b91c323fa3ac07e56

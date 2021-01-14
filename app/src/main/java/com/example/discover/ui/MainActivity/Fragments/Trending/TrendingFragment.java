@@ -3,29 +3,26 @@ package com.example.discover.ui.MainActivity.Fragments.Trending;
 
 import android.os.Bundle;
 
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.discover.R;
-import com.example.discover.Tools.Fonts;
-import com.example.discover.Tools.MySharedPreferences;
+import com.example.discover.helper.Fonts;
+import com.example.discover.helper.MySharedPreferences;
+import com.example.discover.databinding.FragmentTrendingBinding;
 import com.example.discover.pojo.Category;
-import com.example.discover.pojo.WorldWide.Article;
+import com.example.discover.pojo.articleroot.Article;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,19 +30,16 @@ import java.util.Locale;
 public class TrendingFragment extends Fragment {
     //views
     View root;
-    TextView todayDate, discoverTV, countryTV, topFeedsTV, topGrossingTV;
-    RecyclerView trendingCategoriesRecyclerView, trendingRecyclerView;
 
-    Fonts fonts;
     TrendingViewModel trendingViewModel;
-
+    Fonts fonts;
     ArrayList<Article> articleList = new ArrayList<>();
     ArrayList<Category> categories = new ArrayList<>();
 
+    FragmentTrendingBinding trendingBinding;
     TrendingCountryAdapter trendingCountryAdapter;
     TrendCategoryAdapter trendCategoryAdapter;
     MySharedPreferences mySharedPreferences;
-//business entertainment general health science sports technology
 private static final String TAG = "TrendingFragment";
     public TrendingFragment() {
 
@@ -54,9 +48,10 @@ private static final String TAG = "TrendingFragment";
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        root = inflater.inflate(R.layout.fragment_trending, container, false);
+
+        trendingBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_trending, container,false);
+        root = trendingBinding.getRoot();
         mySharedPreferences = new MySharedPreferences(getActivity());
-        fonts = new Fonts(getActivity());
         initViews();
         initViewModel();
         initCategoriesObserver();
@@ -69,18 +64,10 @@ private static final String TAG = "TrendingFragment";
     }
 
     private void initViews(){
-        discoverTV = root.findViewById(R.id.discoverTV);
-        countryTV = root.findViewById(R.id.countryTV);
-        topFeedsTV = root.findViewById(R.id.topFeedsTV);
-        topGrossingTV = root.findViewById(R.id.topGrossingTV);
-        todayDate = root.findViewById(R.id.todayDate);
-        todayDate.setText(getDateNow());
-
-        discoverTV.setTypeface(fonts.getAudioWide());
-        countryTV.setTypeface(fonts.getMontserratAlternates());
-        topFeedsTV.setTypeface(fonts.getNewsCycle());
-        topGrossingTV.setTypeface(fonts.getNewsCycle());
-        todayDate.setTypeface(fonts.getAudioWide());
+        trendingBinding.dateLayoutInclude.setCurrentDate(getDateNow());
+        fonts = new Fonts(getActivity());
+        trendingBinding.setFonts(fonts);
+//        trendingBinding.dateLayoutInclude.todayDate.setText(getDateNow());
     }
     private void initViewModel(){
         trendingViewModel = ViewModelProviders.of(getActivity()).get(TrendingViewModel.class);
@@ -109,16 +96,14 @@ private static final String TAG = "TrendingFragment";
     }
 
     private void initCategoriesRecyclerView(){
-        trendingCategoriesRecyclerView = root.findViewById(R.id.trendingCategoriesRecyclerView);
-        trendingCategoriesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        trendingBinding.trendingCategoriesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         trendCategoryAdapter = new TrendCategoryAdapter(categories, getActivity());
-        trendingCategoriesRecyclerView.setAdapter(trendCategoryAdapter);
+        trendingBinding.trendingCategoriesRecyclerView.setAdapter(trendCategoryAdapter);
     }
 
     private void initTrendingCountryRecyclerView(){
-        trendingRecyclerView = root.findViewById(R.id.trendingRecyclerView);
-        trendingRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        trendingBinding.trendingRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         trendingCountryAdapter = new TrendingCountryAdapter(articleList, getActivity());
-        trendingRecyclerView.setAdapter(trendingCountryAdapter);
+        trendingBinding.trendingRecyclerView.setAdapter(trendingCountryAdapter);
     }
 }

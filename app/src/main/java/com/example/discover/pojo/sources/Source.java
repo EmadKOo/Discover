@@ -1,15 +1,15 @@
-package com.example.discover.pojo.Sources;
+package com.example.discover.pojo.sources;
 
 import java.io.Serializable;
 
 public class Source implements Serializable {
-    public String id;
-    public String name;
-    public String description;
-    public String url;
-    public String category;
-    public String language;
-    public String country;
+    private String id;
+    private String name;
+    private String description;
+    private String url;
+    private String category;
+    private String language;
+    private String country;
 
     public Source() {
     }

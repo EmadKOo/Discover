@@ -1,7 +1,6 @@
-package com.example.discover.pojo.WorldWide;
+package com.example.discover.pojo.articleroot;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class WorldWide {
 

@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="150dp"
-    android:layout_height="200dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="20dp"
-    android:background="@drawable/round_rect_item"
-    android:layout_marginRight="20dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.comix.rounded.RoundedCornerImageView
-        android:id="@+id/imgTrendCategoryItem"
-        android:layout_width="160dp"
-        android:layout_height="210dp"
-        android:scaleType="centerCrop"
-        app:cornerBottomDisable="false"
-        app:cornerLeftDisable="false"
-        app:cornerRightDisable="false"
-        app:cornerTopDisable="false"
-        app:cornerRadius="6dp"
-        app:cornerColor="@color/item_background"
-        />
+    <data>
+        <variable
+            name="category"
+            type="com.example.discover.pojo.Category" />
+    </data>
 
-    <TextView
-        android:id="@+id/titleTrendCategoryItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:textColor="@color/white"
-        android:text="Technology"
-        android:textSize="18sp"
-        />
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/round_rect_item"
+        android:layout_marginRight="20dp">
+
+        <com.comix.rounded.RoundedCornerImageView
+            android:id="@+id/imgTrendCategoryItem"
+            android:layout_width="160dp"
+            android:layout_height="210dp"
+            android:scaleType="centerCrop"
+            app:cornerBottomDisable="false"
+            app:cornerLeftDisable="false"
+            app:cornerRightDisable="false"
+            app:cornerTopDisable="false"
+            app:cornerRadius="6dp"
+            imageUrl="@{category.categoryImage}"
+            app:cornerColor="@color/item_background" />
+
+        <TextView
+            android:id="@+id/titleTrendCategoryItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            android:text="@{category.categoryName}"
+            android:textSize="18sp" />
+    </RelativeLayout>
+</layout>

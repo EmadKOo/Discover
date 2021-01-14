@@ -1,55 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/round_rect_item"
-    android:layout_margin="10dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+        <variable
+            name="source"
+            type="com.example.discover.pojo.sources.Source" />
+        <variable
+            name="Font"
+            type="com.example.discover.helper.Fonts" />
+    </data>
 
-    <TextView
-        android:id="@+id/sourceName"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/sourceCategory"
-        android:text="Al Jazeera English"
-        android:textColor="@color/white"
-        android:paddingTop="20dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:textSize="20sp"/>
+        android:background="@drawable/round_rect_item"
+        android:layout_margin="10dp">
 
-    <TextView
-        android:id="@+id/sourceCountry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/sourceName"
-        android:text="United States"
-        android:textColor="@color/light_text"
-        android:paddingLeft="20dp"
-        android:textSize="10sp"
-        />
 
-    <TextView
-        android:id="@+id/sourceCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Business"
-        android:textColor="@color/white"
-        android:background="@drawable/round_rect_light"
-        android:padding="10dp"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
+        <TextView
+            android:id="@+id/sourceName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/sourceCategory"
+            android:text="@{source.name}"
+            android:typeface="@{Font.montserratAlternates}"
+            android:textColor="@color/white"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textSize="20sp" />
 
-        />
-    <TextView
-        android:id="@+id/sourceDiscription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ews, analysis from the Middle East and worldwide, multimedia and interactives, opinions, documentaries, podcasts, long reads and broadcast schedule."
-        android:textColor="@color/white"
-        android:paddingLeft="20dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:layout_below="@id/sourceCountry"
-        android:textSize="17sp"/>
-</RelativeLayout>
+        <TextView
+            android:id="@+id/sourceCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sourceName"
+            android:text="@{source.country}"
+            android:textColor="@color/light_text"
+            android:paddingLeft="20dp"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/sourceCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{source.category}"
+            android:textColor="@color/white"
+            android:background="@drawable/round_rect_light"
+            android:padding="10dp"
+            android:typeface="@{Font.audioWide}"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"
+
+            />
+
+        <TextView
+            android:id="@+id/sourceDiscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{source.description}"
+            android:textColor="@color/white"
+            android:paddingLeft="20dp"
+            android:paddingRight="10dp"
+            android:typeface="@{Font.newsCycle}"
+            android:paddingBottom="10dp"
+            android:layout_below="@id/sourceCountry"
+            android:textSize="17sp" />
+    </RelativeLayout>
+</layout>

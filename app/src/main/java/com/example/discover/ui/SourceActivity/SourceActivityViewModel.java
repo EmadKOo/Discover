@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.discover.Retrofit.NewsClient;
-import com.example.discover.pojo.WorldWide.Article;
-import com.example.discover.pojo.WorldWide.WorldWide;
+import com.example.discover.pojo.articleroot.Article;
+import com.example.discover.pojo.articleroot.WorldWide;
 
 import java.util.ArrayList;
 

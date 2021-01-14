@@ -1,4 +1,4 @@
-package com.example.discover.Tools;
+package com.example.discover.helper;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;

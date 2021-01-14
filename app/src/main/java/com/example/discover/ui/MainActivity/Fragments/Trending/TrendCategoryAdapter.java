@@ -5,15 +5,18 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.comix.rounded.RoundedCornerImageView;
 import com.example.discover.R;
-import com.example.discover.Tools.Fonts;
+import com.example.discover.databinding.TrendCategoriesItemBinding;
+import com.example.discover.helper.Fonts;
 import com.example.discover.pojo.Category;
 import com.example.discover.ui.SourceActivity.SourceActivity;
 
@@ -36,19 +39,13 @@ public class TrendCategoryAdapter extends RecyclerView.Adapter<TrendCategoryAdap
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        View itemView = inflater.inflate(R.layout.trend_categories_item, viewGroup, false);
-        return new MyViewHolder(itemView);
+        TrendCategoriesItemBinding trendCategoriesItemBinding = TrendCategoriesItemBinding.inflate(LayoutInflater.from(viewGroup.getContext()), viewGroup,false);
+        return new MyViewHolder(trendCategoriesItemBinding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int i) {
-        Glide.with(context)
-                .load(categories.get(i).getCategoryImage())
-                .placeholder(R.drawable.loading)
-                .into(holder.imgTrendCategoryItem);
-
-        holder.titleTrendCategoryItem.setText(categories.get(i).getCategoryName());
+        holder.categoriesItemBinding.setCategory(categories.get(i));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,15 +62,16 @@ public class TrendCategoryAdapter extends RecyclerView.Adapter<TrendCategoryAdap
         return categories.size();
     }
 
+    @BindingAdapter({"imageUrl"})
+    public static void loadImage(ImageView view, String imageUrl) {
+        Glide.with(view.getContext()).load(imageUrl).placeholder(R.drawable.loading).into(view);
+    }
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        RoundedCornerImageView imgTrendCategoryItem;
-        TextView titleTrendCategoryItem;
-
-        public MyViewHolder(@NonNull final View itemView) {
-            super(itemView);
-            titleTrendCategoryItem = itemView.findViewById(R.id.titleTrendCategoryItem);
-            imgTrendCategoryItem = itemView.findViewById(R.id.imgTrendCategoryItem);
-            titleTrendCategoryItem.setTypeface(fonts.getMontserratAlternates());
+        TrendCategoriesItemBinding categoriesItemBinding;
+        public MyViewHolder(@NonNull final TrendCategoriesItemBinding itemView) {
+            super(itemView.getRoot());
+            categoriesItemBinding = itemView;
+            categoriesItemBinding.titleTrendCategoryItem.setTypeface(fonts.getMontserratAlternates());
         }
     }
 

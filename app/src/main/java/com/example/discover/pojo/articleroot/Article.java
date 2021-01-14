@@ -1,17 +1,26 @@
-package com.example.discover.pojo.WorldWide;
+package com.example.discover.pojo.articleroot;
+
+import android.widget.ImageView;
+
+import androidx.databinding.BindingAdapter;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.comix.rounded.RoundedCornerImageView;
+import com.example.discover.R;
 
 import java.io.Serializable;
 
 public class Article implements Serializable {
-    public Source source ;
-    public String author ;
-    public String title ;
-    public String description;
-    public String url ;
-    public String urlToImage ;
-    public String publishedAt ;
-    public String content ;
-
+    private Source source ;
+    private String author ;
+    private String title ;
+    private String description;
+    private String url ;
+    private String urlToImage ;
+    private String publishedAt ;
+    private String content ;
+///@{article.}
     public Article() {
     }
 
@@ -88,5 +97,13 @@ public class Article implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @BindingAdapter("newsImage")
+    public static void loadImage(RoundedCornerImageView view, String imageUrl) {
+        Glide.with(view.getContext())
+                .load(imageUrl)
+                .placeholder(R.drawable.loading)
+                .into(view);
     }
 }
