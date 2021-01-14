@@ -1,8 +1,8 @@
 # Discover
   
   ## Android Application Developed using JAVA.
-  ## I Used MVVM Pattern and [News API](https://newsapi.org/) to keep users updates with news.
-
+  ## I Used MVVM Pattern with ###### DataBinding ## and [News API](https://newsapi.org/) to keep users updates with news.
+  
 <p align="center">
   <img src="Discover Screenshots/Screenshot_2021-01-05-14-25-54-206_com.example.discover.png" width="200" title="Splash Screen">
   <img src="Discover Screenshots/Screenshot_2021-01-05-14-25-42-709_com.example.discover.png" width="200" title="No Connection Screen">
